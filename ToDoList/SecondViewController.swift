@@ -11,10 +11,16 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var addLabel: UITextField!
+    @IBOutlet var resultLabel: UILabel!
     
     @IBAction func addButton(sender: AnyObject) {
+        if (addLabel.text == "") {
+            resultLabel.text = "Please enter a value";
+            return;
+        }
         toDoItems.append(addLabel.text!);
         addLabel.text = "";
+        NSUserDefaults.standardUserDefaults().setObject(toDoItems, forKey: "toDoItems");    //Updates array in memory
     }
     
     override func viewDidLoad() {
@@ -27,7 +33,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true);     //Closes keyboard after tapping anywhere on screen
+    }
+    
+    func textFieldShouldReturn(textfield: UITextField!) -> Bool {
+        addLabel.resignFirstResponder();
+        return true;
+    }
+    
 
 }
 
