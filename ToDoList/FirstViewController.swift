@@ -9,8 +9,6 @@
 import UIKit
 
 var toDoItems:[String] = [];     // Is updated by "Add button" in Second View Controller
-                                    // Add pull to refresh feature and fading added succesfully message
-                                    // Add title, customize UI color and featuresf
 
 class FirstViewController: UIViewController, UITableViewDelegate {
     
@@ -26,10 +24,28 @@ class FirstViewController: UIViewController, UITableViewDelegate {
         cell.textLabel?.text = toDoItems[indexPath.row];
         return cell;
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true;    //Allows to swipe to delete + editing
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            toDoItems.removeAtIndex(indexPath.row);
+            NSUserDefaults.standardUserDefaults().setObject(toDoItems, forKey: "toDoItems");    //Updates array in memory
+            table.reloadData();
+        }
+//        if (editingStyle == UITableViewCellEditingStyle.Insert) {
+//            //Handle addition
+//        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad();
-        // Do any additional setup after loading the view, typically from a nib.
+        if (NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") != nil) {       //Checks if there is a save file in storage
+          toDoItems = NSUserDefaults.standardUserDefaults().objectForKey("toDoItems") as! [String]; //If there is, set array to loaded array
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
