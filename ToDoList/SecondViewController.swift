@@ -12,15 +12,28 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var addLabel: UITextField!
     @IBOutlet var resultLabel: UILabel!
+    var timer = NSTimer();
     
     @IBAction func addButton(sender: AnyObject) {
         if (addLabel.text == "") {
             resultLabel.text = "Please enter a value";
+            callTimer();
             return;
         }
         toDoItems.append(addLabel.text!);
         addLabel.text = "";
+        resultLabel.text = "Succesfully added!";
+        callTimer();
         NSUserDefaults.standardUserDefaults().setObject(toDoItems, forKey: "toDoItems");    //Updates array in memory
+    }
+    
+    func run() {
+        resultLabel.text = "";
+        timer.invalidate();
+    }
+    
+    func callTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(SecondViewController.run), userInfo: nil, repeats: false);
     }
     
     override func viewDidLoad() {

@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-Xv-qoa">
-                                <rect key="frame" x="-4" y="28" width="328" height="491"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ow8-Xv-qoa">
+                                <rect key="frame" x="-4" y="64" width="328" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="rjS-jO-0gX">
@@ -36,13 +36,21 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="s2P-We-ZTc"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGX-Km-rvO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="ToDoList" id="UhG-Io-u2V"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ow8-Xv-qoa" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="7Wa-bO-OJB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hGX-Km-rvO" secondAttribute="trailing" constant="-20" id="GZq-q5-daA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ow8-Xv-qoa" secondAttribute="trailing" constant="-20" id="aBy-GA-pVj"/>
                             <constraint firstItem="Ow8-Xv-qoa" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="cjP-VS-ewQ"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Ow8-Xv-qoa" secondAttribute="bottom" id="lbk-IH-Rce"/>
+                            <constraint firstItem="hGX-Km-rvO" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="q7L-dy-iZB"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="View" image="first" id="acW-dT-cKf"/>
@@ -85,7 +93,7 @@
                                     <action selector="addButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="5i5-XA-FgF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Succesfully Added!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2np-YA-fkd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2np-YA-fkd">
                                 <rect key="frame" x="86" y="273" width="148" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
