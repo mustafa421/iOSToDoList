@@ -9,9 +9,6 @@
 import UIKit
 
 var toDoItems:[String] = [];     // Is updated by "Add button" in Second View Controller
-                                    // Add pull to refresh feature and fading added succesfully message
-                                    // Add title, customize UI color and featuresf 
-                                    // Add direct editing into cells
 
 class FirstViewController: UIViewController, UITableViewDelegate {
     
